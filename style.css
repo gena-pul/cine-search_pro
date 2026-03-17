@@ -1,0 +1,16 @@
+/* State-based CSS for loading spinner */
+#results-container[data-loading="true"] {
+    opacity: 0.5;
+    pointer-events: none;
+    /* Add your spinner animation logic here later */
+}
+
+.highlight {
+    background-color: yellow;
+}
+
+.movie-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    list-style: none;
+}
