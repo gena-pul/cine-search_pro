@@ -1,48 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>Cine Search Pro</title>
     <link rel="stylesheet" href="style.css">
-</head>
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>CineSearch Pro</h1>
+      <p class="subtitle">
+        Asynchronous Movie Search with Concurrent API Requests
+      </p>
+    </header>
 
-<body>
+    <div class="app-container">
+      <!-- SEARCH SECTION -->
+      <div class="search-section">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search for a movie..."
+          autocomplete="off"
+        >
+        <div id="results-container" data-loading="false">
+          <div class="spinner"></div>
+          <ul id="result-list"></ul>
+        </div>
+      </div>
 
-<div class="search-wrapper">
-
-    <input 
-        type="text"
-        id="search-input"
-        placeholder="Search for a movie..."
-        autocomplete="off"
-    >
-
-    <!-- The container that manages state (loading) -->
-    <div id="results-container" data-loading="false">
-
-        <!-- Spinner shows when data-loading="true" -->
-        <div class="spinner"></div>
-
-        <ul id="result-list"></ul>
-
+      <!-- DETAILS PANEL -->
+      <div id="movie-details" class="details-panel">
+        <h3>Movie Details</h3>
+        <p>Select a movie to view information.</p>
+      </div>
     </div>
 
-</div>
+    <!-- TEMPLATE -->
+    <template id="result-template">
+      <li class="movie-item" tabindex="-1">
+        <img
+          class="result-poster"
+          src=""
+          alt="Movie poster"
+          width="50"
+          height="75"
+        >
+        <div class="movie-text">
+          <div class="title-container"></div>
+          <span class="result-meta"></span>
+        </div>
+      </li>
+    </template>
 
-<!-- Template for each movie result -->
-<template id="result-template">
-<li class="movie-item" tabindex="0">
-    <img
-        class="result-poster"
-        src=""
-        alt=""
-        style="width:50px;height:75px;object-fit:cover;"
-    >
-    <div class="title-container"></div>
-    <span class="result-meta"></span>
-
-</li>
-</template>
-<script src="script.js" type="module"></script>
-</body>
+    <script src="script.js" type="module"></script>
+  </body>
 </html>
