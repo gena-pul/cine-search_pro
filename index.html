@@ -2,33 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cine Search Pro</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="search-wrapper">
-        <input type="text" id="search-input" placeholder="Search for a movie...">
-        
-        <!-- ID must be results-container to match JS -->
-        <div id="results-container" data-loading="false">
-            <!-- ID must be result-list -->
-            <ul id="result-list"></ul>
-        </div>
+<div class="search-wrapper">
+
+    <input 
+        type="text"
+        id="search-input"
+        placeholder="Search for a movie..."
+        autocomplete="off"
+    >
+
+    <!-- The container that manages state (loading) -->
+    <div id="results-container" data-loading="false">
+
+        <!-- Spinner shows when data-loading="true" -->
+        <div class="spinner"></div>
+
+        <ul id="result-list"></ul>
+
     </div>
 
-    <!-- ID must be result-template -->
-    <template id="result-template">
-        <li class="movie-item">
-            <!-- Class must be result-title for the JS to find it -->
-            <span class="result-title"></span>
-            <!-- Added these to match JS expectations -->
-            <span class="result-meta"></span>
-            <span class="result-rating"></span>
-        </li>
-    </template>
+</div>
 
-    <script src="script.js" type="module"></script>
+<!-- Template for each movie result -->
+<template id="result-template">
+<li class="movie-item" tabindex="0">
+    <img
+        class="result-poster"
+        src=""
+        alt=""
+        style="width:50px;height:75px;object-fit:cover;"
+    >
+    <div class="title-container"></div>
+    <span class="result-meta"></span>
+
+</li>
+</template>
+<script src="script.js" type="module"></script>
 </body>
 </html>

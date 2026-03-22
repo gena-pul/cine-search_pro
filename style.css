@@ -1,16 +1,63 @@
-/* State-based CSS for loading spinner */
-#results-container[data-loading="true"] {
-    opacity: 0.5;
-    pointer-events: none;
-    /* Add your spinner animation logic here later */
+body {
+    font-family: sans-serif;
+    padding: 20px;
+    background: #f4f4f4;
+}
+
+.search-wrapper {
+    position: relative;
+    max-width: 400px;
+}
+
+/* Loading Spinner: Hidden by default */
+
+.spinner {
+    display: none;
+    margin: 10px auto;
+
+    width: 20px;
+    height: 20px;
+
+    border: 3px solid #ccc;
+    border-top: 3px solid #3498db;
+
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+}
+
+/* Requirement: Use data-loading attribute to toggle spinner */
+
+#results-container[data-loading="true"] .spinner {
+    display: block;
+}
+
+@keyframes spin {
+
+0% { transform: rotate(0deg); }
+
+100% { transform: rotate(360deg); }
+
 }
 
 .highlight {
     background-color: yellow;
+    font-weight: bold;
 }
 
 .movie-item {
     padding: 10px;
-    border-bottom: 1px solid #ccc;
-    list-style: none;
+    border-bottom: 1px solid #eee;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: white;
+}
+
+.movie-item:hover {
+    background-color: #f8f9fa;
 }
